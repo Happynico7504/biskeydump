@@ -3,7 +3,7 @@
 
 sdmmc_t* get_controller_for_index(u8 pdrv)
 {
-    static sdmmc_t controllers[FF_VOLUMES] = {2};
+    static sdmmc_t controllers[FF_VOLUMES] = {0};
     if (pdrv >= FF_VOLUMES)
         return NULL;
 
