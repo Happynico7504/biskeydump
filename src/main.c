@@ -465,7 +465,7 @@ writetosd:
     video_reposition(0,0);
     FATFS fs;
     memset(&fs, 0, sizeof(FATFS));
-    while (!initialize_mount(&fs, 0))
+    while (!initialize_mount(&fs, 2))
     {
         memset(&fs, 0, sizeof(FATFS));
 		printk("Failed to mount SD card, press VOL+ to try again or POWER to power off\n");
