@@ -1,0 +1,24 @@
+name: Build CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container: devkitpro/devkitarm
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - run: |
+           make
+           tar -c out | gzip -9 > biskeydump.tar.gz
+
+    - name: Upload Binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: package
+        path: |
+              biskeydump.tar.gz
